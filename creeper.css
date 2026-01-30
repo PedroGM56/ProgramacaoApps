@@ -1,0 +1,74 @@
+.rosto1 {
+    background-color: chartreuse;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+    ;
+}
+
+.olho_esquerdo {
+    background-color: black;
+    width: 500px;
+    height: 500px;
+}
+
+.olho_direito {
+    background-color: black;
+    width: 500px;
+    height: 500px;
+    margin-left: 300px;
+}
+
+.rosto2 {
+    background-color: chartreuse;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+}
+
+.nariz {
+    background-color: chartreuse;
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.narina {
+    background-color: black;
+    width: 30vh;
+    height: 36vh;
+}
+
+.boca_superior {
+    background-color: black;
+    width: 87vw;
+    height: 60vh;
+}
+
+.rosto3 {
+    background-color: chartreuse;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.boca_inferior1 {
+    background-color: black;
+    width: 25vw;
+    height: 60vh;
+    margin-right: 305px;
+}
+
+.boca_inferior2 {
+    background-color: black;
+    width: 25vw;
+    height: 60vh;
+}

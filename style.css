@@ -1,0 +1,91 @@
+.linha {
+    display: flex;
+    justify-content: space-between;
+}
+
+.linha.margin-top {
+    margin-top: 80px;
+}
+
+.box-azul {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}
+
+.box-azul.margin-left {
+    margin-left: 50px;
+}
+
+.box-vermelho {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+}
+
+.center {
+    margin: auto;
+}
+
+.center-top-75 {
+    margin: auto;
+    margin-top: 75px;
+}
+
+.center-top-150 {
+    margin: auto;
+    margin-top: 150px;
+}
+
+.mt-100-ml-70 {
+    margin-top: 100px;
+    margin-left: 70px;
+}
+
+.mt-100-ml-150 {
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+.ml-60-mt-20 {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.flex-column-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
+
+.terco {
+    width: 200px;
+    height: 33%;
+    display: flex;
+}
+
+.center-start {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.space-center {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.center-end {
+    justify-content: center;
+    align-items: flex-end;
+}
