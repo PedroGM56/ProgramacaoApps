@@ -1,0 +1,174 @@
+.fundoB {
+    background-color: pink;
+    width: 100%;
+    height: 25vh;
+    display: flex;
+}
+
+.fundao1 {
+    background-color: white;
+    width: 33vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.quadradoAG {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+}
+
+.quadradoA1 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-self: flex-start;
+}
+
+.fundao2 {
+    background-color: white;
+    width: 33vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadradoR {
+    background-color: deeppink;
+    width: 50px;
+    height: 50px;
+}
+
+.fundao3 {
+    background-color: white;
+    width: 33vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quadradoA2 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-self: flex-end;
+}
+
+.fundoB2 {
+    background-color: white;
+    width: 100%;
+    height: 33vh;
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-between;
+}
+
+.fundao4 {
+    background-color: red;
+    width: 28vw;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quadradoA3 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-self: center;
+}
+
+.quadradoA4 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.fundao5 {
+    background-color: blue;
+    width: 28vw;
+    height: 28vh;
+}
+
+.faixa1 {
+    background-color: blue;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faixa2 {
+    background-color: blue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.faixa3 {
+    background-color: blue;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+
+.fundao6 {
+    background-color: orange;
+    width: 28vw;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quadradoA5 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-self: flex-end;
+    margin-top: auto;
+    align-self: center;
+}
+
+.fundoB3 {
+    background-color: white;
+    width: 100vw;
+    height: 33vh;
+    display: flex;
+}
+
+.retA {
+    background-color: aqua;
+    width: 50vw;
+    height: 33vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.circulo {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.retV {
+    background-color: red;
+    width: 50vw;
+    height: 33vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo2 {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

@@ -1,0 +1,52 @@
+.linha {
+    display: flex;
+}
+
+.quadrado_azul1 {
+    background-color: rgb(127, 204, 255);
+    width: 100vw;
+    height: 33vh;
+    display: flex;
+    align-items: center;
+}
+
+.quadradinho_amarelo {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+}
+
+.quadrado_amarelo {
+    background-color: yellow;
+    width: 100vw;
+    height: 33vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.quadradinho_azul {
+    background-color: rgb(127, 204, 255);
+    width: 100px;
+    height: 100px;
+}
+
+.quadrado_branco {
+    background-color: white;
+    width: 100vw;
+    height: 33vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quadrado_azul2 {
+    background-color: rgb(127, 204, 255);
+    width: 100vw;
+    height: 33vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
