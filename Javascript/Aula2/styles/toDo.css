@@ -1,0 +1,38 @@
+.corpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 70vw;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: azure;
+    font-family: Arial;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.texto {
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.botao {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

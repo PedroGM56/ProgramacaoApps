@@ -1,21 +1,29 @@
 function addTask() {
     let lista = document.querySelector('#task').value;
+
     let task = document.createElement('li');
-    let texto = document.createElement('h1');
+    let texto = document.createElement('span');
+    let check = document.createElement('input');
+
+    check.type = 'checkbox';
     texto.textContent = lista;
+
+    task.appendChild(check);
     task.appendChild(texto);
+
     document.querySelector('#lista').appendChild(task);
+    document.querySelector('#task').value = '';
 }
 
+
 function remove() {
-    let lista = document.querySelector('#task').value;
-    let tasks = document.querySelectorAll('#lista li');
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].textContent === lista) {
-            tasks[i].remove();
-        }
-    }
+    let checks = document.querySelectorAll('#lista input:checked');
+
+    checks.forEach(check => {
+        check.closest('li').remove();
+    });
 }
+
 
 document.querySelector('#addTask').addEventListener('click', addTask);
 document.querySelector('#removeTask').addEventListener('click', remove);
