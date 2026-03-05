@@ -1,0 +1,28 @@
+[{
+        "id": 0,
+        "name": "Joaõ",
+        "salary": 1234,
+        "parents": {
+            "father": "Carlos",
+            "mother": "Joana"
+        }
+    },
+    {
+        "id": 1,
+        "name": "Carlos",
+        "salary": 2345,
+        "parents": {
+            "father": "Felipe",
+            "mother": "Ana"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Maicon",
+        "salary": 1234,
+        "parents": {
+            "father": "Pedro",
+            "mother": "Patricia"
+        }
+    }
+]

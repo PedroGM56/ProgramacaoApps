@@ -1,0 +1,16 @@
+.section {
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cards div {
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 120px;
+}
