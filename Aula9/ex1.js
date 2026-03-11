@@ -43,3 +43,9 @@ const category = data.vehicles.reduce((acc, c) => {
 }, {})
 
 // console.log(category)
+
+const obj = {
+  a: { b: { c: 1 } }
+}
+S
+console.log(obj.a?.b?.c)
