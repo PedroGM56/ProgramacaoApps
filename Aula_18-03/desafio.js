@@ -180,3 +180,5 @@ class Client extends User {
 const c1 = new Client(1, 'Thiago', 'thiagov@gmail.com', 'thiago123')
 console.log(c1.alterarMeusDados(1, {senha:'thiago12345'}, 'thiago123'))
 
+const a1 = new Admin(1, 'Pedro', 'pedrogon@gmail.com', 'pedro123')
+console.log(a1.exibir(1))

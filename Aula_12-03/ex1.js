@@ -5,7 +5,7 @@ class Pessoa {
         this.altura = altura
     }
 
-    apresentar(){
+    apresentar(){   
         return `O nome é ${this.nome}, tem ${this.idade} anos e ${this.altura}m de altura`
     }
 }
