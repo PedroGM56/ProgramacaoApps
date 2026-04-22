@@ -60,6 +60,31 @@ app.post('/registro', (req, res) =>{
     )
 })
 
+app.delete('/deletar/:id', (req, res) => {
+    const { id } = req.params
+    try{
+        connection.query('DELETE FROM usuarios WHERE id = ?', [id])
+        return res.status(200).send({message: 'Usuário deletado com sucesso'})
+    }
+    catch(e){
+        return res.status(500).send({error:e})
+    }
+});
+
+app.put('/atualizar/:id', (req,res) => {
+    const { id } = req.params
+    const {nome, email, senha} = req.body
+    try{
+        connection.query('UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?', 
+            [nome, email, senha, id]
+        )
+        return res.status(200).send({message: "Usuário atualizado com sucesso"})
+    }
+    catch{
+        return res.status(500).send({error: "Ocorreu um erro ao atualizar"})
+    }
+});
+
 app.listen(port, () => {
     console.log('Servidor rodando em http://localhost:8080')
 })
@@ -82,7 +107,6 @@ app.post('/registro_aprendiz', (req, res) =>{
             if(err){
                 return err
             }
-           return res.status(200).send({response: 'Aprendiz registrado'})
-        }
-    )
+           return res.status(201).send({response: 'Aprendiz registrado'})
+        })
 })
