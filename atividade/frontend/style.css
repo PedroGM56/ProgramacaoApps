@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
+:root {
+  --bg:           #f5f4f0;
+  --surface:      #ffffff;
+  --surface2:     #fafaf8;
+  --border:       #e8e6e0;
+  --border-hover: #c8c5bc;
+
+  --ink:          #1a1916;
+  --ink-2:        #4a4840;
+  --ink-3:        #8c8a84;
+
+  --gold:         #c9a84c;
+  --gold-light:   #f5ecd4;
+  --gold-glow:    #c9a84c28;
+
+  --emerald:      #1a7a4a;
+  --emerald-bg:   #e8f5ee;
+  --red:          #c0392b;
+  --red-bg:       #fdf0ee;
+  --blue:         #1e4fa3;
+  --blue-bg:      #eef2fb;
+
+  --radius-sm:    6px;
+  --radius:       12px;
+  --radius-lg:    18px;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow:       0 4px 16px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg:    0 12px 40px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.05);
+  --transition:   .22s cubic-bezier(.4,0,.2,1);
+}
+
+/* ══════════════════════════════════════════════
+   BASE
+══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════════════ */
+body::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, #e8c96a 50%, var(--gold) 100%);
+}
+
+/* ══════════════════════════════════════════════
+   PAGE HEADER
+══════════════════════════════════════════════ */
+body::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 68px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   LAYOUT WRAPPER
+══════════════════════════════════════════════ */
+.inputs {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 96px 32px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.inputs br { display: none; }
+
+/* ══════════════════════════════════════════════
+   FIELDSET / CARD
+══════════════════════════════════════════════ */
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: 0;
+  box-shadow: var(--shadow);
+  animation: slideUp .45s ease both;
+  overflow: hidden;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+fieldset:nth-child(3) { animation-delay: .1s; }
+
+fieldset:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-hover);
+}
+
+/* Card header */
+fieldset::before {
+  content: attr(data-label);
+  display: block;
+  padding: 20px 28px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+/* ══════════════════════════════════════════════
+   FORM
+══════════════════════════════════════════════ */
+form {
+  padding: 24px 28px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Full-width inputs */
+form input:first-child,
+form input[type="date"],
+form button {
+  grid-column: 1 / -1;
+}
+
+/* ══════════════════════════════════════════════
+   INPUTS
+══════════════════════════════════════════════ */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  height: 42px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input::placeholder {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+input:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  background: var(--surface);
+}
+
+input:focus {
+  border-color: var(--gold);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+input:disabled {
+  background: var(--bg);
+  color: var(--ink-3);
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+input[type="date"] {
+  color: var(--ink-2);
+}
+
+/* Number arrows */
+input[type="number"]::-webkit-inner-spin-button { opacity: .5; }
+
+/* ══════════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════════ */
+button[type="submit"] {
+  height: 46px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#form button[type="submit"] {
+  background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #c9a84c 100%);
+  background-size: 200% 100%;
+  color: #2a1f00;
+  box-shadow: 0 2px 12px var(--gold-glow), inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+#form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px #c9a84c40;
+  background-position: right center;
+}
+
+#formatt button[type="submit"] {
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+
+#formatt button[type="submit"]:hover {
+  transform: translateY(-1px);
+  background: var(--ink-2);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+
+button[type="submit"]:active { transform: translateY(0) scale(.99); }
+
+/* Shimmer on register button */
+#form button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: skewX(-20deg);
+  transition: left .5s;
+}
+#form button[type="submit"]:hover::after { left: 140%; }
+
+/* ══════════════════════════════════════════════
+   SECTION HEADING
+══════════════════════════════════════════════ */
+h1 {
+  max-width: 1160px;
+  margin: 40px auto 16px;
+  padding: 0 32px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+h1::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--gold), #e8c96a);
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+
+h1::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ══════════════════════════════════════════════
+   TABLE WRAPPER
+══════════════════════════════════════════════ */
+.tabela {
+  max-width: 1160px;
+  margin: 0 auto 64px;
+  padding: 0 32px;
+  animation: slideUp .5s .15s ease both;
+}
+
+/* ══════════════════════════════════════════════
+   TABLE
+══════════════════════════════════════════════ */
+.tabela { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-width: 860px;
+}
+
+table[border] { border: 1px solid var(--border); }
+
+thead { background: var(--surface2); }
+
+th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: var(--surface2);
+  z-index: 1;
+}
+
+th:first-child { padding-left: 24px; }
+th:last-child  { padding-right: 24px; text-align: center; }
+
+td {
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+
+td:first-child { padding-left: 24px; font-weight: 500; }
+td:last-child  { padding-right: 24px; text-align: center; }
+
+tbody tr:last-child td { border-bottom: none; }
+
+tbody tr {
+  transition: background var(--transition);
+}
+
+tbody tr:hover td { background: #faf9f6; }
+
+/* Column-specific styling */
+/* Price / Total columns — slightly bolder */
+td:nth-child(4),
+td:nth-child(5) {
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+td:nth-child(5) { color: var(--emerald); }
+
+/* Date column */
+td:nth-child(6) { color: var(--ink-2); font-size: 13px; }
+
+/* Payment badge — will style any text in that cell via JS, 
+   but we can style the td */
+td:nth-child(7) { font-size: 13px; }
+
+/* ══════════════════════════════════════════════
+   ACTION BUTTONS
+   (matches common JS-generated class names)
+══════════════════════════════════════════════ */
+.btn-edit, .btn-editar, .btn-update,
+button[class*="edit"], button[class*="editar"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-bg);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-right: 6px;
+}
+
+.btn-delete, .btn-deletar, .btn-remove,
+button[class*="delete"], button[class*="deletar"], button[class*="remov"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid #e8c5c0;
+  border-radius: var(--radius-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red);
+  background: var(--red-bg);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-edit:hover, .btn-editar:hover,
+button[class*="edit"]:hover, button[class*="editar"]:hover {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px #1e4fa325;
+}
+
+.btn-delete:hover, .btn-deletar:hover,
+button[class*="delete"]:hover, button[class*="deletar"]:hover,
+button[class*="remov"]:hover {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px #c0392b25;
+}
+
+/* ══════════════════════════════════════════════
+   EMPTY STATE
+══════════════════════════════════════════════ */
+#listaVendas:empty {
+  display: block;
+}
+
+#listaVendas:empty::after {
+  content: 'Nenhuma venda registrada ainda';
+  display: block;
+  text-align: center;
+  padding: 56px 32px;
+  color: var(--ink-3);
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .inputs {
+    grid-template-columns: 1fr;
+    padding: 88px 20px 0;
+  }
+  h1, .tabela { padding: 0 20px; }
+  h1 { margin-top: 28px; font-size: 22px; }
+  form { grid-template-columns: 1fr; }
+  form input:first-child,
+  form input[type="date"],
+  form button { grid-column: auto; }
+}

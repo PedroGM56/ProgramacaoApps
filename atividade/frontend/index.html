@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - Vendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="inputs">
+
+        <fieldset data-label="Nova Venda">
+            <form id="form">
+                <input type="text" placeholder="Nome do Produto" id="nome_produto" required>
+                <input type="text" placeholder="Categoria" id="categoria_produto" required>
+                <input type="number" placeholder="Quantidade" id="quantidade" required>
+                <input type="number" placeholder="Preço Unitário" id="preco_unitario" required>
+                <input type="date" id="data_venda" required>
+                <input type="text" placeholder="Forma de Pagamento" id="forma_pagamento" required>
+                <input type="text" placeholder="Vendedor" id="nome_vendedor" required>
+
+                <button type="submit">Registrar Venda</button>
+            </form>
+        </fieldset>
+
+        <br><br><br>
+
+        <fieldset data-label="Atualizar">
+            <form id="formatt">
+                <input type="text" id="attid" disabled>
+                <input type="text" placeholder="Nome do Produto" id="attnome_produto" required>
+                <input type="text" placeholder="Categoria" id="attcategoria_produto" required>
+                <input type="number" placeholder="Quantidade" id="attquantidade" required>
+                <input type="number" placeholder="Preço Unitário" id="attpreco_unitario" required>
+                <input type="date" id="attdata_venda" required>
+                <input type="text" placeholder="Forma de Pagamento" id="attforma_pagamento" required>
+                <input type="text" placeholder="Vendedor" id="attnome_vendedor" required>
+
+                <button type="submit">Atualizar Venda</button>
+            </form>
+        </fieldset>
+
+        <br><br><br>
+
+
+    </div>
+
+    <h1>Tabela de Vendas</h1>
+
+    <div class="tabela">
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Qtd</th>
+                    <th>Preço</th>
+                    <th>Total</th>
+                    <th>Data</th>
+                    <th>Pagamento</th>
+                    <th>Vendedor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="listaVendas">
+                <!-- dados vêm do JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
