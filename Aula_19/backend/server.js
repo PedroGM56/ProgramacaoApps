@@ -1,18 +1,18 @@
 import express from 'express';
-import initRoutes from './src/routes/routes.js'
+import initRoutes from './src/routes/routes.js';
 
-const app = express()
+const app = express();
 
-const port = 8080
-
-initRoutes(app)
+const port = 8080;
 
 app.use(express.json());
 
+initRoutes(app);
+
 app.get('/', (req, res) => {
-    return res.send("A API está rodando")
-})
+    return res.send("A API está rodando");
+});
 
 app.listen(port, () => {
-    console.log("O servidor está rodando em http://localhost:8080")
-})
+    console.log("O servidor está rodando em http://localhost:8080");
+});
