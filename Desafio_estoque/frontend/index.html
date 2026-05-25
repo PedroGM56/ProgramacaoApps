@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+</head>
+<body>
+
+    <form id="formulario">
+        <input type="text" id="id" placeholder="id">
+        <input type="text" id="nome" placeholder="nome">
+        <input type="text" id="codigo" placeholder="codigo">
+        <input type="text" id="fornecedor" placeholder="fornecedor">
+        <input type="text" id="quantidade" placeholder="quantidade">
+        <input type="text" id="preco" placeholder="preco">
+        <input type="text" id="estoque" placeholder="estoque">
+        <button type="submit">Enviar</button>
+        <button type="submit">Atualizar</button>
+    </form>
+
+    <table>
+        <thead>
+            <th>id</th>
+            <th>Nome da Peça</th>
+            <th>Código</th>
+            <th>Fornecedor</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+            <th>Estoque</th>
+        </thead>
+        <tbody id="table-data">
+            
+        </tbody>
+    </table>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

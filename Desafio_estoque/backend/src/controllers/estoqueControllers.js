@@ -39,8 +39,8 @@ export const updatePeca = (req, res) => {
     const {id} = req.params;
     const {nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque} = req.body;
 
-    connection.query('update pecas set nome_peca = ?, codigo_peca = ?, fornecedor = ?, quantidade = ?, preco_unitario = ?, estoque = ?',
-        [nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque], 
+    connection.query('update pecas set nome_peca = ?, codigo_peca = ?, fornecedor = ?, quantidade = ?, preco_unitario = ?, estoque = ? where id = ?',
+        [nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario, estoque, id], 
         (err, results) => {
             if(err){
                 return res.status(500).send(err)
