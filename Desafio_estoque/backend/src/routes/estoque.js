@@ -10,5 +10,6 @@ const router = express.Router()
         .get('/:id', validateGetId, getById)
         .put('/update/:id', updatePeca)
         .delete('/delete/:id', deletePeca)
+        
 
 export default router

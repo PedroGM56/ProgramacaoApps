@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow:wght@300;400;500;600&display=swap');
+
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
+:root {
+  --bg:          #1c1c1e;
+  --bg2:         #242426;
+  --surface:     #2c2c2e;
+  --surface2:    #333335;
+  --border:      #3a3a3c;
+  --border2:     #48484a;
+
+  --text:        #f0efea;
+  --text-2:      #aeaca4;
+  --text-3:      #6e6c66;
+
+  --yellow:      #f5c400;
+  --yellow-dim:  #f5c40020;
+  --yellow-mid:  #f5c40040;
+
+  --green:       #30d158;
+  --green-bg:    #30d15820;
+  --orange:      #ff9f0a;
+  --orange-bg:   #ff9f0a20;
+  --red:         #ff453a;
+  --red-bg:      #ff453a20;
+
+  --radius-sm:   5px;
+  --radius:      10px;
+  --radius-lg:   16px;
+  --shadow:      0 4px 20px rgba(0,0,0,.35);
+  --shadow-lg:   0 8px 40px rgba(0,0,0,.5);
+  --t:           .2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ══════════════════════════════════════════════
+   BASE
+══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 0 0 80px;
+
+  /* Concrete texture via CSS noise */
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% 0%, #2e2a1a18 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ══════════════════════════════════════════════
+   HEADER BANNER
+══════════════════════════════════════════════ */
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-align: center;
+  padding: 52px 24px 40px;
+  line-height: 1;
+  position: relative;
+}
+
+h1::before,
+h1::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+h1::before { margin-bottom: 20px; }
+h1::after  { margin-top: 20px; }
+
+h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(16px, 3vw, 22px);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--orange);
+  max-width: 940px;
+  margin: 52px auto 16px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h2::before {
+  content: '⚠';
+  font-style: normal;
+  font-size: .9em;
+}
+
+h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+  opacity: .4;
+}
+
+/* ══════════════════════════════════════════════
+   FORM CARD
+══════════════════════════════════════════════ */
+#formulario {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  animation: fadeUp .4s ease both;
+}
+
+/* Full-width rows */
+#formulario input#id          { grid-column: 1 / 2; }
+#formulario input#nome        { grid-column: 2 / 4; }
+#formulario input#local_encontrado { grid-column: 1 / 3; }
+#formulario input#data_encontrado  { grid-column: 3 / 4; }
+#formulario select             { grid-column: 1 / 2; }
+#formulario input#descricao    { grid-column: 2 / 4; }
+#formulario button[type="submit"] { grid-column: 1 / 2; }
+#formulario #btn-update        { grid-column: 2 / 4; }
+
+/* ══════════════════════════════════════════════
+   INPUTS & SELECT
+══════════════════════════════════════════════ */
+#formulario input,
+#formulario select {
+  width: 100%;
+  height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color var(--t), box-shadow var(--t), background var(--t);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#formulario input::placeholder { color: var(--text-3); }
+
+#formulario input:hover,
+#formulario select:hover {
+  background: var(--surface2);
+  border-color: var(--border2);
+}
+
+#formulario input:focus,
+#formulario select:focus {
+  background: var(--surface2);
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px var(--yellow-dim);
+}
+
+#formulario input[type="date"] { color: var(--text-2); }
+
+#formulario select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236e6c66' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+#formulario select option {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* ══════════════════════════════════════════════
+   FORM BUTTONS
+══════════════════════════════════════════════ */
+#formulario button {
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: transform var(--t), filter var(--t), box-shadow var(--t);
+}
+
+#formulario button[type="submit"] {
+  background: var(--yellow);
+  color: #1a1600;
+  box-shadow: 0 2px 16px var(--yellow-mid);
+}
+
+#formulario button[type="submit"]:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px var(--yellow-mid);
+}
+
+#formulario #btn-update {
+  background: var(--surface2);
+  color: var(--text-2);
+  border: 1px solid var(--border2);
+}
+
+#formulario #btn-update:hover {
+  background: var(--border2);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+#formulario button:active { transform: translateY(0) scale(.99); }
+
+/* ══════════════════════════════════════════════
+   TABLES
+══════════════════════════════════════════════ */
+.tabela-wrapper,
+body > table {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow-x: auto;
+  animation: fadeUp .45s .1s ease both;
+}
+
+/* Target bare tables in body */
+body > table {
+  display: block;
+}
+
+body > table table,
+body > table {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-width: 580px;
+}
+
+table[border] { border: 1px solid var(--border); }
+
+thead { background: var(--bg2); }
+
+th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th:first-child { padding-left: 20px; }
+th:last-child  { padding-right: 20px; }
+
+td {
+  padding: 13px 16px;
+  font-size: 13.5px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  transition: background var(--t);
+  white-space: nowrap;
+}
+
+td:first-child { padding-left: 20px; color: var(--text-3); font-size: 12px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: .04em; }
+td:last-child  { padding-right: 20px; }
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--surface2); }
+
+/* ══════════════════════════════════════════════
+   STATUS BADGES
+   (JS usually sets text content; we key off text)
+══════════════════════════════════════════════ */
+.badge,
+td .status,
+td[data-status] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.badge-encontrado, .status-encontrado {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid #30d15840;
+}
+
+.badge-pendente, .status-pendente {
+  background: var(--orange-bg);
+  color: var(--orange);
+  border: 1px solid #ff9f0a40;
+}
+
+.badge-entregue, .status-entregue {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid #30d15840;
+  opacity: .7;
+}
+
+/* ══════════════════════════════════════════════
+   ACTION BUTTONS (JS-generated)
+══════════════════════════════════════════════ */
+button.editar,  button.btn-editar,
+button.edit,    button.btn-edit,
+button[class*="edit"]:not(#btn-update),
+button[class*="editar"]:not(#btn-update) {
+  padding: 5px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: var(--surface2);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all var(--t);
+  margin-right: 6px;
+}
+
+button.deletar,  button.btn-deletar,
+button.delete,   button.btn-delete,
+button.remover,  button.btn-remover,
+button[class*="delete"],
+button[class*="deletar"],
+button[class*="remov"] {
+  padding: 5px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #ff453a30;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: var(--red-bg);
+  color: var(--red);
+  cursor: pointer;
+  transition: all var(--t);
+}
+
+button[class*="edit"]:not(#btn-update):hover,
+button[class*="editar"]:not(#btn-update):hover {
+  background: var(--border2);
+  color: var(--text);
+  border-color: var(--text-3);
+}
+
+button[class*="delete"]:hover,
+button[class*="deletar"]:hover,
+button[class*="remov"]:hover {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+/* ══════════════════════════════════════════════
+   EMPTY STATES
+══════════════════════════════════════════════ */
+#table-data:empty::after,
+#table-pendentes:empty::after {
+  content: 'Nenhum registro encontrado';
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: var(--text-3);
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: .04em;
+}
+
+/* ══════════════════════════════════════════════
+   LAYOUT: bare tables inside body
+   (no wrapper divs in the HTML)
+══════════════════════════════════════════════ */
+body > table {
+  max-width: 940px;
+  margin: 0 auto 0;
+  padding: 0 24px;
+  display: block;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+body > table table {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: table;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════
+   BR CLEANUP
+══════════════════════════════════════════════ */
+body > br { display: none; }
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 680px) {
+  #formulario {
+    grid-template-columns: 1fr;
+  }
+  #formulario input#id,
+  #formulario input#nome,
+  #formulario input#local_encontrado,
+  #formulario input#data_encontrado,
+  #formulario select,
+  #formulario input#descricao,
+  #formulario button[type="submit"],
+  #formulario #btn-update {
+    grid-column: 1 / -1;
+  }
+}

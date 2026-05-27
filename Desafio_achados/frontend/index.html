@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados e Perdidos</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <h1>Sistema de Achados e Perdidos</h1>
+
+    <form id="formulario">
+
+        <input type="text" id="id" placeholder="ID">
+
+        <input type="text" id="nome" placeholder="Nome do objeto">
+
+        <input type="text" id="local_encontrado" placeholder="Local encontrado">
+
+        <input type="date" id="data_encontrado">
+
+        <select id="status_objeto">
+            <option value="">Selecione o status</option>
+            <option value="Encontrado">Encontrado</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Entregue">Entregue</option>
+        </select>
+
+        <input type="text" id="descricao" placeholder="Descrição">
+
+        <button type="submit">Cadastrar</button>
+
+        <button type="button" id="btn-update">
+            Atualizar
+        </button>
+
+    </form>
+
+    <br><br>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Local Encontrado</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+
+        <tbody id="table-data">
+
+        </tbody>
+
+    </table>
+
+    <h2>Objetos pendentes há mais de 30 dias</h2>
+
+<table border="1">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+
+    <tbody id="table-pendentes">
+
+    </tbody>
+
+</table>
+
+    <script src="scripts/achadosFront.js"></script>
+
+</body>
+</html>
